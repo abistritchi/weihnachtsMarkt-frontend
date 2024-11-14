@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // Fetch text titles
-    this.http.get<{ title1: string, title2: string, title3: string }>('/api/text')
+    this.http.get<{ title1: string, title2: string, title3: string }>('api/text')
       .subscribe(response => {
         this.title1 = response.title1;
         this.title2 = response.title2;
@@ -82,7 +82,7 @@ export class AppComponent implements OnInit {
 
   private fetchMarkers(): void {
     // Fetch markers data
-    this.http.get<{ markers: MarkerData[], markerBig: MarkerData[] }>('/api/text')
+    this.http.get<{ markers: MarkerData[], markerBig: MarkerData[] }>('api/text')
       .subscribe(response => {
         const markersData = response.markers;
         const markerBigData = response.markerBig;
@@ -169,9 +169,11 @@ function interpolate(a: number, b: number, factor: number): number {
 
 function getGeoCoordinate(x: number, y: number): GeoCoordinate {
   // Ensure x and y are within the expected range
+  /**
   if (y < 1 || y > 21 || x < 1 || x > 12) {
     throw new Error("x must be between 0 and 21, and y must be between 0 and 12");
   }
+    */
 
   const topLeft: GeoCoordinate = [53.5503, 9.9933];
   const topRight: GeoCoordinate = [53.55055, 9.994];

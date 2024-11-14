@@ -1,6 +1,3 @@
-.rotated-marker {
-  transform: rotate(30deg);
-}
 .lable-name {
   font-size: 5px; /* Adjust the size as needed */
   font-weight: bold; /* Optional: Make the text bold */
